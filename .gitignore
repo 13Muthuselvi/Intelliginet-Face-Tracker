@@ -1,0 +1,33 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Models and media (downloaded locally)
+models/*.pt
+models/*.onnx
+models/*.bin
+data/*.mp4
+data/*.avi
+data/*.mkv
+data/*.db
+data/*.db-journal
+data/drive_sample/
+
+# Runtime outputs (keep folder structure via .gitkeep)
+logs/entries/
+logs/exits/
+logs/faces/
+logs/events.log
+logs/*.mp4
+logs/*.avi
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.ipynb_checkpoints/

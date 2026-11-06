@@ -1,0 +1,532 @@
+2026-11-06 13:06:57 | INFO | Pipeline ready | device=cpu | skip_frames=2 | gallery_size=0
+2026-11-06 13:06:57 | INFO | SOURCE | data/sample.mp4 | 3840x2160 @ 30.0 FPS
+2026-11-06 13:06:59 | INFO | DETECTION | frame=0 | faces=8
+2026-11-06 13:06:59 | INFO | DETECTION | frame=3 | faces=8
+2026-11-06 13:06:59 | INFO | REGISTRATION | track=1 | face_id=F24EAFD02 | unique_visitors=1
+2026-11-06 13:06:59 | INFO | ENTRY | face_id=F24EAFD02 | track=1 | frame=3 | image=logs/entries/2026-11-06/F24EAFD02_130659_860612.jpg
+2026-11-06 13:06:59 | INFO | TRACKING | face_id=F24EAFD02 | track=1 started
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=2 | face_id=FBBAF054B | unique_visitors=2
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=FBBAF054B | track=2 | frame=3 | image=logs/entries/2026-11-06/FBBAF054B_130659_860612.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=FBBAF054B | track=2 started
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=3 | face_id=F578CC1D8 | unique_visitors=3
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=F578CC1D8 | track=3 | frame=3 | image=logs/entries/2026-11-06/F578CC1D8_130659_860612.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F578CC1D8 | track=3 started
+2026-11-06 13:07:00 | INFO | RECOGNITION | track=4 | face_id=F578CC1D8 | cosine=0.430
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F578CC1D8 | track=4 started
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=5 | face_id=F3B0B1DF6 | unique_visitors=4
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=F3B0B1DF6 | track=5 | frame=3 | image=logs/entries/2026-11-06/F3B0B1DF6_130659_860612.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F3B0B1DF6 | track=5 started
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=6 | face_id=FAD8B5CC7 | unique_visitors=5
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=FAD8B5CC7 | track=6 | frame=3 | image=logs/entries/2026-11-06/FAD8B5CC7_130659_860612.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=FAD8B5CC7 | track=6 started
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=7 | face_id=F528C892A | unique_visitors=6
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=F528C892A | track=7 | frame=3 | image=logs/entries/2026-11-06/F528C892A_130659_860612.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F528C892A | track=7 started
+2026-11-06 13:07:00 | INFO | RECOGNITION | track=8 | face_id=F578CC1D8 | cosine=0.355
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F578CC1D8 | track=8 started
+2026-11-06 13:07:00 | INFO | DETECTION | frame=6 | faces=8
+2026-11-06 13:07:00 | INFO | DETECTION | frame=9 | faces=9
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=9 | face_id=F85281BCD | unique_visitors=7
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=F85281BCD | track=9 | frame=9 | image=logs/entries/2026-11-06/F85281BCD_130700_561532.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=F85281BCD | track=9 started
+2026-11-06 13:07:00 | INFO | DETECTION | frame=12 | faces=12
+2026-11-06 13:07:00 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:00 | INFO | REGISTRATION | track=11 | face_id=FF7D2804D | unique_visitors=8
+2026-11-06 13:07:00 | INFO | ENTRY | face_id=FF7D2804D | track=11 | frame=12 | image=logs/entries/2026-11-06/FF7D2804D_130700_775666.jpg
+2026-11-06 13:07:00 | INFO | TRACKING | face_id=FF7D2804D | track=11 started
+2026-11-06 13:07:00 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:01 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:01 | INFO | DETECTION | frame=15 | faces=11
+2026-11-06 13:07:01 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:01 | INFO | REGISTRATION | track=12 | face_id=F28871E60 | unique_visitors=9
+2026-11-06 13:07:01 | INFO | ENTRY | face_id=F28871E60 | track=12 | frame=15 | image=logs/entries/2026-11-06/F28871E60_130701_077444.jpg
+2026-11-06 13:07:01 | INFO | TRACKING | face_id=F28871E60 | track=12 started
+2026-11-06 13:07:01 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:01 | WARNING | Embedding skipped for track=10 (no usable face in crop)
+2026-11-06 13:07:01 | INFO | DETECTION | frame=18 | faces=11
+2026-11-06 13:07:01 | INFO | REGISTRATION | track=10 | face_id=F63547630 | unique_visitors=10
+2026-11-06 13:07:01 | INFO | ENTRY | face_id=F63547630 | track=10 | frame=18 | image=logs/entries/2026-11-06/F63547630_130701_422259.jpg
+2026-11-06 13:07:01 | INFO | TRACKING | face_id=F63547630 | track=10 started
+2026-11-06 13:07:01 | INFO | DETECTION | frame=21 | faces=9
+2026-11-06 13:07:01 | INFO | DETECTION | frame=24 | faces=11
+2026-11-06 13:07:02 | INFO | DETECTION | frame=27 | faces=11
+2026-11-06 13:07:02 | INFO | RECOGNITION | track=13 | face_id=FF7D2804D | cosine=0.522
+2026-11-06 13:07:02 | INFO | TRACKING | face_id=FF7D2804D | track=13 started
+2026-11-06 13:07:02 | INFO | DETECTION | frame=30 | faces=11
+2026-11-06 13:07:02 | INFO | REGISTRATION | track=14 | face_id=FDC491B4D | unique_visitors=11
+2026-11-06 13:07:02 | INFO | ENTRY | face_id=FDC491B4D | track=14 | frame=30 | image=logs/entries/2026-11-06/FDC491B4D_130702_244061.jpg
+2026-11-06 13:07:02 | INFO | TRACKING | face_id=FDC491B4D | track=14 started
+2026-11-06 13:07:02 | INFO | DETECTION | frame=33 | faces=10
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:02 | INFO | DETECTION | frame=36 | faces=9
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:02 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | INFO | DETECTION | frame=39 | faces=9
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | INFO | DETECTION | frame=42 | faces=9
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | INFO | RECOGNITION | track=17 | face_id=FAD8B5CC7 | cosine=0.709
+2026-11-06 13:07:03 | INFO | TRACKING | face_id=FAD8B5CC7 | track=17 started
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=15 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | INFO | DETECTION | frame=45 | faces=8
+2026-11-06 13:07:03 | INFO | REGISTRATION | track=15 | face_id=FA293A799 | unique_visitors=12
+2026-11-06 13:07:03 | INFO | ENTRY | face_id=FA293A799 | track=15 | frame=45 | image=logs/entries/2026-11-06/FA293A799_130703_614851.jpg
+2026-11-06 13:07:03 | INFO | TRACKING | face_id=FA293A799 | track=15 started
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:03 | INFO | DETECTION | frame=48 | faces=9
+2026-11-06 13:07:03 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | INFO | DETECTION | frame=51 | faces=10
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | INFO | RECOGNITION | track=18 | face_id=F28871E60 | cosine=0.530
+2026-11-06 13:07:04 | INFO | TRACKING | face_id=F28871E60 | track=18 started
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | INFO | DETECTION | frame=54 | faces=11
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | INFO | REGISTRATION | track=19 | face_id=FB5BF2FE5 | unique_visitors=13
+2026-11-06 13:07:04 | INFO | ENTRY | face_id=FB5BF2FE5 | track=19 | frame=54 | image=logs/entries/2026-11-06/FB5BF2FE5_130704_497637.jpg
+2026-11-06 13:07:04 | INFO | TRACKING | face_id=FB5BF2FE5 | track=19 started
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | INFO | DETECTION | frame=57 | faces=12
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:04 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | INFO | DETECTION | frame=60 | faces=13
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | INFO | REGISTRATION | track=21 | face_id=F336D6348 | unique_visitors=14
+2026-11-06 13:07:05 | INFO | ENTRY | face_id=F336D6348 | track=21 | frame=60 | image=logs/entries/2026-11-06/F336D6348_130705_099112.jpg
+2026-11-06 13:07:05 | INFO | TRACKING | face_id=F336D6348 | track=21 started
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | INFO | DETECTION | frame=63 | faces=12
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=20 (no usable face in crop)
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:05 | INFO | DETECTION | frame=66 | faces=14
+2026-11-06 13:07:05 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:05 | INFO | RECOGNITION | track=20 | face_id=F336D6348 | cosine=0.400
+2026-11-06 13:07:05 | INFO | TRACKING | face_id=F336D6348 | track=20 started
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | INFO | EXIT | face_id=F3B0B1DF6 | track=5 | frame=66 | image=logs/exits/2026-11-06/F3B0B1DF6_130705_875674.jpg
+2026-11-06 13:07:06 | INFO | TRACKING | face_id=F3B0B1DF6 | track=5 ended
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=22 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | INFO | DETECTION | frame=69 | faces=14
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | INFO | REGISTRATION | track=22 | face_id=F86D985CC | unique_visitors=15
+2026-11-06 13:07:06 | INFO | ENTRY | face_id=F86D985CC | track=22 | frame=69 | image=logs/entries/2026-11-06/F86D985CC_130706_274660.jpg
+2026-11-06 13:07:06 | INFO | TRACKING | face_id=F86D985CC | track=22 started
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | INFO | RECOGNITION | track=24 | face_id=FA293A799 | cosine=0.492
+2026-11-06 13:07:06 | INFO | TRACKING | face_id=FA293A799 | track=24 started
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | INFO | DETECTION | frame=72 | faces=15
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:06 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | INFO | DETECTION | frame=75 | faces=11
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | INFO | DETECTION | frame=78 | faces=13
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | INFO | EXIT | face_id=F24EAFD02 | track=1 | frame=78 | image=logs/exits/2026-11-06/F24EAFD02_130707_280761.jpg
+2026-11-06 13:07:07 | INFO | TRACKING | face_id=F24EAFD02 | track=1 ended
+2026-11-06 13:07:07 | INFO | EXIT | face_id=F63547630 | track=10 | frame=78 | image=logs/exits/2026-11-06/F63547630_130707_280761.jpg
+2026-11-06 13:07:07 | INFO | TRACKING | face_id=F63547630 | track=10 ended
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | INFO | DETECTION | frame=81 | faces=12
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:07 | INFO | DETECTION | frame=84 | faces=13
+2026-11-06 13:07:07 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | INFO | DETECTION | frame=87 | faces=14
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=16 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | INFO | DETECTION | frame=90 | faces=13
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:08 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | DETECTION | frame=93 | faces=15
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | REGISTRATION | track=32 | face_id=F46F7D919 | unique_visitors=16
+2026-11-06 13:07:09 | INFO | ENTRY | face_id=F46F7D919 | track=32 | frame=93 | image=logs/entries/2026-11-06/F46F7D919_130708_940538.jpg
+2026-11-06 13:07:09 | INFO | TRACKING | face_id=F46F7D919 | track=32 started
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=29 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | DETECTION | frame=96 | faces=11
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | REGISTRATION | track=29 | face_id=FDB2AA039 | unique_visitors=17
+2026-11-06 13:07:09 | INFO | ENTRY | face_id=FDB2AA039 | track=29 | frame=96 | image=logs/entries/2026-11-06/FDB2AA039_130709_415516.jpg
+2026-11-06 13:07:09 | INFO | TRACKING | face_id=FDB2AA039 | track=29 started
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=31 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | DETECTION | frame=99 | faces=13
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:09 | INFO | RECOGNITION | track=31 | face_id=F86D985CC | cosine=0.398
+2026-11-06 13:07:09 | INFO | TRACKING | face_id=F86D985CC | track=31 started
+2026-11-06 13:07:09 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | DETECTION | frame=102 | faces=13
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | RECOGNITION | track=35 | face_id=F528C892A | cosine=0.529
+2026-11-06 13:07:10 | INFO | TRACKING | face_id=F528C892A | track=35 started
+2026-11-06 13:07:10 | INFO | EXIT | face_id=F28871E60 | track=18 | frame=102 | image=logs/exits/2026-11-06/F28871E60_130710_079453.jpg
+2026-11-06 13:07:10 | INFO | TRACKING | face_id=F28871E60 | track=18 ended
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | DETECTION | frame=105 | faces=13
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | DETECTION | frame=108 | faces=15
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | REGISTRATION | track=36 | face_id=F895BCBBB | unique_visitors=18
+2026-11-06 13:07:10 | INFO | ENTRY | face_id=F895BCBBB | track=36 | frame=108 | image=logs/entries/2026-11-06/F895BCBBB_130710_633923.jpg
+2026-11-06 13:07:10 | INFO | TRACKING | face_id=F895BCBBB | track=36 started
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:10 | INFO | DETECTION | frame=111 | faces=14
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | RECOGNITION | track=37 | face_id=F528C892A | cosine=0.629
+2026-11-06 13:07:11 | INFO | TRACKING | face_id=F528C892A | track=37 started
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=38 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=38 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=38 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | DETECTION | frame=114 | faces=15
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | REGISTRATION | track=38 | face_id=F6CA77D51 | unique_visitors=19
+2026-11-06 13:07:11 | INFO | ENTRY | face_id=F6CA77D51 | track=38 | frame=114 | image=logs/entries/2026-11-06/F6CA77D51_130711_307331.jpg
+2026-11-06 13:07:11 | INFO | TRACKING | face_id=F6CA77D51 | track=38 started
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | DETECTION | frame=117 | faces=14
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | RECOGNITION | track=40 | face_id=FDB2AA039 | cosine=0.389
+2026-11-06 13:07:11 | INFO | TRACKING | face_id=FDB2AA039 | track=40 started
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | WARNING | Embedding skipped for track=23 (no usable face in crop)
+2026-11-06 13:07:11 | INFO | DETECTION | frame=120 | faces=16
+2026-11-06 13:07:12 | INFO | DETECTION | frame=123 | faces=12
+2026-11-06 13:07:12 | INFO | DETECTION | frame=126 | faces=12
+2026-11-06 13:07:12 | INFO | DETECTION | frame=129 | faces=13
+2026-11-06 13:07:12 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:12 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:12 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:12 | INFO | DETECTION | frame=132 | faces=13
+2026-11-06 13:07:12 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:12 | INFO | RECOGNITION | track=46 | face_id=F6CA77D51 | cosine=0.683
+2026-11-06 13:07:12 | INFO | TRACKING | face_id=F6CA77D51 | track=46 started
+2026-11-06 13:07:12 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | INFO | DETECTION | frame=135 | faces=12
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | INFO | EXIT | face_id=FA293A799 | track=24 | frame=135 | image=logs/exits/2026-11-06/FA293A799_130713_097915.jpg
+2026-11-06 13:07:13 | INFO | TRACKING | face_id=FA293A799 | track=24 ended
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | INFO | DETECTION | frame=138 | faces=12
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | INFO | DETECTION | frame=141 | faces=13
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | INFO | REGISTRATION | track=52 | face_id=FE0BAF540 | unique_visitors=20
+2026-11-06 13:07:13 | INFO | ENTRY | face_id=FE0BAF540 | track=52 | frame=141 | image=logs/entries/2026-11-06/FE0BAF540_130713_621387.jpg
+2026-11-06 13:07:13 | INFO | TRACKING | face_id=FE0BAF540 | track=52 started
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:13 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | DETECTION | frame=144 | faces=13
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | RECOGNITION | track=53 | face_id=F528C892A | cosine=0.663
+2026-11-06 13:07:14 | INFO | TRACKING | face_id=F528C892A | track=53 started
+2026-11-06 13:07:14 | INFO | RECOGNITION | track=56 | face_id=F6CA77D51 | cosine=0.553
+2026-11-06 13:07:14 | INFO | TRACKING | face_id=F6CA77D51 | track=56 started
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | DETECTION | frame=147 | faces=15
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | DETECTION | frame=150 | faces=15
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | REGISTRATION | track=59 | face_id=FA71B77A3 | unique_visitors=21
+2026-11-06 13:07:14 | INFO | ENTRY | face_id=FA71B77A3 | track=59 | frame=150 | image=logs/entries/2026-11-06/FA71B77A3_130714_551730.jpg
+2026-11-06 13:07:14 | INFO | TRACKING | face_id=FA71B77A3 | track=59 started
+2026-11-06 13:07:14 | INFO | EXIT | face_id=FBBAF054B | track=2 | frame=150 | image=logs/exits/2026-11-06/FBBAF054B_130714_551730.jpg
+2026-11-06 13:07:14 | INFO | TRACKING | face_id=FBBAF054B | track=2 ended
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | DETECTION | frame=153 | faces=17
+2026-11-06 13:07:14 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:14 | INFO | RECOGNITION | track=61 | face_id=F63547630 | cosine=0.385
+2026-11-06 13:07:14 | INFO | ENTRY | face_id=F63547630 | track=61 | frame=153 | image=logs/entries/2026-11-06/F63547630_130714_856755.jpg
+2026-11-06 13:07:14 | INFO | TRACKING | face_id=F63547630 | track=61 started
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | INFO | DETECTION | frame=156 | faces=15
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | INFO | REGISTRATION | track=64 | face_id=F09FBAA41 | unique_visitors=22
+2026-11-06 13:07:15 | INFO | ENTRY | face_id=F09FBAA41 | track=64 | frame=156 | image=logs/entries/2026-11-06/F09FBAA41_130715_185864.jpg
+2026-11-06 13:07:15 | INFO | TRACKING | face_id=F09FBAA41 | track=64 started
+2026-11-06 13:07:15 | INFO | REGISTRATION | track=68 | face_id=FCEDD46AB | unique_visitors=23
+2026-11-06 13:07:15 | INFO | ENTRY | face_id=FCEDD46AB | track=68 | frame=156 | image=logs/entries/2026-11-06/FCEDD46AB_130715_185864.jpg
+2026-11-06 13:07:15 | INFO | TRACKING | face_id=FCEDD46AB | track=68 started
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | INFO | DETECTION | frame=159 | faces=16
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | INFO | REGISTRATION | track=66 | face_id=FE9E7115E | unique_visitors=24
+2026-11-06 13:07:15 | INFO | ENTRY | face_id=FE9E7115E | track=66 | frame=159 | image=logs/entries/2026-11-06/FE9E7115E_130715_518762.jpg
+2026-11-06 13:07:15 | INFO | TRACKING | face_id=FE9E7115E | track=66 started
+2026-11-06 13:07:15 | INFO | REGISTRATION | track=67 | face_id=F68908662 | unique_visitors=25
+2026-11-06 13:07:15 | INFO | ENTRY | face_id=F68908662 | track=67 | frame=159 | image=logs/entries/2026-11-06/F68908662_130715_518762.jpg
+2026-11-06 13:07:15 | INFO | TRACKING | face_id=F68908662 | track=67 started
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | INFO | DETECTION | frame=162 | faces=15
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:15 | WARNING | Embedding skipped for track=74 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | REGISTRATION | track=75 | face_id=FDFCC4B07 | unique_visitors=26
+2026-11-06 13:07:16 | INFO | ENTRY | face_id=FDFCC4B07 | track=75 | frame=162 | image=logs/entries/2026-11-06/FDFCC4B07_130715_890078.jpg
+2026-11-06 13:07:16 | INFO | TRACKING | face_id=FDFCC4B07 | track=75 started
+2026-11-06 13:07:16 | INFO | REGISTRATION | track=76 | face_id=F3DC65E31 | unique_visitors=27
+2026-11-06 13:07:16 | INFO | ENTRY | face_id=F3DC65E31 | track=76 | frame=162 | image=logs/entries/2026-11-06/F3DC65E31_130715_890078.jpg
+2026-11-06 13:07:16 | INFO | TRACKING | face_id=F3DC65E31 | track=76 started
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=74 (no usable face in crop)
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=74 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | DETECTION | frame=165 | faces=15
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | REGISTRATION | track=74 | face_id=F549BDCBE | unique_visitors=28
+2026-11-06 13:07:16 | INFO | ENTRY | face_id=F549BDCBE | track=74 | frame=165 | image=logs/entries/2026-11-06/F549BDCBE_130716_276624.jpg
+2026-11-06 13:07:16 | INFO | TRACKING | face_id=F549BDCBE | track=74 started
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | DETECTION | frame=168 | faces=13
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | EXIT | face_id=F895BCBBB | track=36 | frame=168 | image=logs/exits/2026-11-06/F895BCBBB_130716_603925.jpg
+2026-11-06 13:07:16 | INFO | TRACKING | face_id=F895BCBBB | track=36 ended
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:16 | INFO | DETECTION | frame=171 | faces=14
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | INFO | EXIT | face_id=FDB2AA039 | track=40 | frame=171 | image=logs/exits/2026-11-06/FDB2AA039_130716_923015.jpg
+2026-11-06 13:07:17 | INFO | TRACKING | face_id=FDB2AA039 | track=40 ended
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | INFO | DETECTION | frame=174 | faces=16
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | WARNING | Embedding skipped for track=44 (no usable face in crop)
+2026-11-06 13:07:17 | INFO | DETECTION | frame=177 | faces=17
+2026-11-06 13:07:17 | INFO | DETECTION | frame=180 | faces=16
+2026-11-06 13:07:17 | INFO | RECOGNITION | track=82 | face_id=F549BDCBE | cosine=0.380
+2026-11-06 13:07:17 | INFO | TRACKING | face_id=F549BDCBE | track=82 started
+2026-11-06 13:07:17 | INFO | REGISTRATION | track=83 | face_id=F4D5770D9 | unique_visitors=29
+2026-11-06 13:07:17 | INFO | ENTRY | face_id=F4D5770D9 | track=83 | frame=180 | image=logs/entries/2026-11-06/F4D5770D9_130717_686134.jpg
+2026-11-06 13:07:17 | INFO | TRACKING | face_id=F4D5770D9 | track=83 started
+2026-11-06 13:07:17 | INFO | EXIT | face_id=F578CC1D8 | track=3 | frame=180 | image=logs/exits/2026-11-06/F578CC1D8_130717_686134.jpg
+2026-11-06 13:07:17 | INFO | TRACKING | face_id=F578CC1D8 | track=3 ended
+2026-11-06 13:07:17 | INFO | DETECTION | frame=183 | faces=15
+2026-11-06 13:07:18 | INFO | RECOGNITION | track=87 | face_id=F68908662 | cosine=0.766
+2026-11-06 13:07:18 | INFO | TRACKING | face_id=F68908662 | track=87 started
+2026-11-06 13:07:18 | INFO | DETECTION | frame=186 | faces=14
+2026-11-06 13:07:18 | INFO | EXIT | face_id=FF7D2804D | track=13 | frame=186 | image=logs/exits/2026-11-06/FF7D2804D_130718_196637.jpg
+2026-11-06 13:07:18 | INFO | TRACKING | face_id=FF7D2804D | track=13 ended
+2026-11-06 13:07:18 | INFO | DETECTION | frame=189 | faces=13
+2026-11-06 13:07:18 | INFO | DETECTION | frame=192 | faces=15
+2026-11-06 13:07:18 | INFO | RECOGNITION | track=90 | face_id=FCEDD46AB | cosine=0.477
+2026-11-06 13:07:18 | INFO | TRACKING | face_id=FCEDD46AB | track=90 started
+2026-11-06 13:07:18 | INFO | DETECTION | frame=195 | faces=14
+2026-11-06 13:07:18 | INFO | RECOGNITION | track=91 | face_id=F68908662 | cosine=0.765
+2026-11-06 13:07:18 | INFO | TRACKING | face_id=F68908662 | track=91 started
+2026-11-06 13:07:18 | INFO | EXIT | face_id=F528C892A | track=53 | frame=195 | image=logs/exits/2026-11-06/F528C892A_130718_837457.jpg
+2026-11-06 13:07:18 | INFO | TRACKING | face_id=F528C892A | track=53 ended
+2026-11-06 13:07:19 | INFO | DETECTION | frame=198 | faces=14
+2026-11-06 13:07:19 | INFO | EXIT | face_id=FA71B77A3 | track=59 | frame=198 | image=logs/exits/2026-11-06/FA71B77A3_130719_092996.jpg
+2026-11-06 13:07:19 | INFO | TRACKING | face_id=FA71B77A3 | track=59 ended
+2026-11-06 13:07:19 | INFO | DETECTION | frame=201 | faces=16
+2026-11-06 13:07:19 | INFO | EXIT | face_id=FAD8B5CC7 | track=17 | frame=201 | image=logs/exits/2026-11-06/FAD8B5CC7_130719_284912.jpg
+2026-11-06 13:07:19 | INFO | TRACKING | face_id=FAD8B5CC7 | track=17 ended
+2026-11-06 13:07:19 | INFO | DETECTION | frame=204 | faces=16
+2026-11-06 13:07:19 | INFO | RECOGNITION | track=94 | face_id=FE9E7115E | cosine=0.602
+2026-11-06 13:07:19 | INFO | TRACKING | face_id=FE9E7115E | track=94 started
+2026-11-06 13:07:19 | INFO | RECOGNITION | track=95 | face_id=F09FBAA41 | cosine=0.855
+2026-11-06 13:07:19 | INFO | TRACKING | face_id=F09FBAA41 | track=95 started
+2026-11-06 13:07:19 | INFO | EXIT | face_id=FE0BAF540 | track=52 | frame=204 | image=logs/exits/2026-11-06/FE0BAF540_130719_511410.jpg
+2026-11-06 13:07:19 | INFO | TRACKING | face_id=FE0BAF540 | track=52 ended
+2026-11-06 13:07:19 | INFO | DETECTION | frame=207 | faces=15
+2026-11-06 13:07:20 | INFO | DETECTION | frame=210 | faces=16
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | INFO | EXIT | face_id=F3DC65E31 | track=76 | frame=210 | image=logs/exits/2026-11-06/F3DC65E31_130720_004741.jpg
+2026-11-06 13:07:20 | INFO | TRACKING | face_id=F3DC65E31 | track=76 ended
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | INFO | DETECTION | frame=213 | faces=14
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | INFO | DETECTION | frame=216 | faces=13
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:20 | INFO | DETECTION | frame=219 | faces=13
+2026-11-06 13:07:20 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | INFO | DETECTION | frame=222 | faces=15
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | INFO | RECOGNITION | track=101 | face_id=FDB2AA039 | cosine=0.381
+2026-11-06 13:07:21 | INFO | ENTRY | face_id=FDB2AA039 | track=101 | frame=222 | image=logs/entries/2026-11-06/FDB2AA039_130721_177915.jpg
+2026-11-06 13:07:21 | INFO | TRACKING | face_id=FDB2AA039 | track=101 started
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | INFO | DETECTION | frame=225 | faces=14
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | INFO | RECOGNITION | track=103 | face_id=F09FBAA41 | cosine=0.883
+2026-11-06 13:07:21 | INFO | TRACKING | face_id=F09FBAA41 | track=103 started
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | INFO | DETECTION | frame=228 | faces=13
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:21 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | INFO | DETECTION | frame=231 | faces=15
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | INFO | DETECTION | frame=234 | faces=15
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | INFO | REGISTRATION | track=106 | face_id=FC1F5DA9A | unique_visitors=30
+2026-11-06 13:07:22 | INFO | ENTRY | face_id=FC1F5DA9A | track=106 | frame=234 | image=logs/entries/2026-11-06/FC1F5DA9A_130722_344937.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FC1F5DA9A | track=106 started
+2026-11-06 13:07:22 | INFO | RECOGNITION | track=107 | face_id=FB5BF2FE5 | cosine=0.395
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FB5BF2FE5 | track=107 started
+2026-11-06 13:07:22 | INFO | RECOGNITION | track=108 | face_id=F46F7D919 | cosine=0.521
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F46F7D919 | track=108 started
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | INFO | DETECTION | frame=237 | faces=16
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | WARNING | Embedding skipped for track=97 (no usable face in crop)
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F85281BCD | track=9 | frame=240 | image=logs/exits/2026-11-06/F85281BCD_130722_940216.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F85281BCD | track=9 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FDC491B4D | track=14 | frame=240 | image=logs/exits/2026-11-06/FDC491B4D_130722_941779.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FDC491B4D | track=14 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F336D6348 | track=21 | frame=240 | image=logs/exits/2026-11-06/F336D6348_130722_942995.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F336D6348 | track=21 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F86D985CC | track=31 | frame=240 | image=logs/exits/2026-11-06/F86D985CC_130722_944263.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F86D985CC | track=31 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F6CA77D51 | track=56 | frame=240 | image=logs/exits/2026-11-06/F6CA77D51_130722_945658.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F6CA77D51 | track=56 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F63547630 | track=61 | frame=240 | image=logs/exits/2026-11-06/F63547630_130722_947261.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F63547630 | track=61 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F549BDCBE | track=74 | frame=240 | image=logs/exits/2026-11-06/F549BDCBE_130722_948334.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F549BDCBE | track=74 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FDFCC4B07 | track=75 | frame=240 | image=logs/exits/2026-11-06/FDFCC4B07_130722_949307.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FDFCC4B07 | track=75 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F4D5770D9 | track=83 | frame=240 | image=logs/exits/2026-11-06/F4D5770D9_130722_950363.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F4D5770D9 | track=83 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FCEDD46AB | track=90 | frame=240 | image=logs/exits/2026-11-06/FCEDD46AB_130722_951258.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FCEDD46AB | track=90 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F68908662 | track=91 | frame=240 | image=logs/exits/2026-11-06/F68908662_130722_952183.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F68908662 | track=91 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FE9E7115E | track=94 | frame=240 | image=logs/exits/2026-11-06/FE9E7115E_130722_953139.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FE9E7115E | track=94 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FDB2AA039 | track=101 | frame=240 | image=logs/exits/2026-11-06/FDB2AA039_130722_954040.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FDB2AA039 | track=101 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F09FBAA41 | track=103 | frame=240 | image=logs/exits/2026-11-06/F09FBAA41_130722_954900.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F09FBAA41 | track=103 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FC1F5DA9A | track=106 | frame=240 | image=logs/exits/2026-11-06/FC1F5DA9A_130722_955761.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FC1F5DA9A | track=106 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=FB5BF2FE5 | track=107 | frame=240 | image=logs/exits/2026-11-06/FB5BF2FE5_130722_967799.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=FB5BF2FE5 | track=107 ended
+2026-11-06 13:07:22 | INFO | EXIT | face_id=F46F7D919 | track=108 | frame=240 | image=logs/exits/2026-11-06/F46F7D919_130722_969013.jpg
+2026-11-06 13:07:22 | INFO | TRACKING | face_id=F46F7D919 | track=108 ended
+2026-11-06 13:07:23 | INFO | COMPLETE | frames=240 | unique=30 | entries=32 | exits=32

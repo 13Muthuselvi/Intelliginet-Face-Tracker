@@ -1,0 +1,12 @@
+ultralytics>=8.2.0
+insightface>=0.7.3
+onnxruntime>=1.17.0
+opencv-python>=4.9.0
+numpy>=1.26.0
+scipy>=1.11.0
+Pillow>=10.0.0
+flask>=3.0.0
+gdown>=5.1.0
+requests>=2.31.0
+python-dateutil>=2.9.0
+gunicorn>=22.0.0; platform_system != "Windows"

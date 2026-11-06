@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Intelligent Face Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>Intelligent Face Tracker</h1>
+    <p>Unique visitor counter · auto-registration · entry/exit logs</p>
+  </header>
+  <section class="stats">
+    <article><strong>{{ unique }}</strong><span>Unique visitors</span></article>
+    <article><strong>{{ entries }}</strong><span>Entries</span></article>
+    <article><strong>{{ exits }}</strong><span>Exits</span></article>
+  </section>
+  <section>
+    <h2>Registered faces</h2>
+    <div class="grid">
+      {% for face in faces %}
+      <figure>
+        {% if face.thumbnail_path %}
+        <img src="{{ url_for('media', rel=face.thumbnail_path) }}" alt="{{ face.face_id }}">
+        {% endif %}
+        <figcaption>
+          <b>{{ face.face_id }}</b>
+          <small>First {{ face.first_seen }}</small>
+        </figcaption>
+      </figure>
+      {% else %}
+      <p class="empty">No faces registered yet. Run <code>python app.py --source data/sample.mp4</code>.</p>
+      {% endfor %}
+    </div>
+  </section>
+  <section>
+    <h2>Recent events</h2>
+    <table>
+      <thead>
+        <tr><th>Time</th><th>Type</th><th>Face</th><th>Track</th><th>Frame</th><th>Image</th></tr>
+      </thead>
+      <tbody>
+        {% for e in events %}
+        <tr>
+          <td>{{ e.timestamp }}</td>
+          <td class="{{ e.event_type }}">{{ e.event_type }}</td>
+          <td>{{ e.face_id }}</td>
+          <td>{{ e.track_id }}</td>
+          <td>{{ e.frame_index }}</td>
+          <td>
+            {% if e.image_path %}
+            <a href="{{ url_for('media', rel=e.image_path) }}">view</a>
+            {% endif %}
+          </td>
+        </tr>
+        {% else %}
+        <tr><td colspan="6">No events yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>
