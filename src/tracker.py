@@ -50,6 +50,8 @@ class Track:
     counted_in_scene: bool = False
     last_crop: np.ndarray | None = field(default=None, repr=False)
     confirmed: bool = False
+    rejected: bool = False
+    failed_embeds: int = 0
 
 
 class IoUTracker:

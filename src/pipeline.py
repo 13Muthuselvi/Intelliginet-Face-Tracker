@@ -12,7 +12,7 @@ from src.database import FaceDatabase
 from src.detector import FaceDetector
 from src.device import resolve_device
 from src.event_logger import EventLogger
-from src.gallery import FaceGallery
+from src.gallery import FaceGallery, choose_identity
 from src.recognizer import FaceRecognizer
 from src.tracker import IoUTracker, Track
 from src.video_source import open_capture
@@ -46,8 +46,14 @@ class FaceTrackerPipeline:
             float(config["yolo_confidence"]),
             int(config["yolo_imgsz"]),
             self.device,
+            min_box_side=float(config.get("min_box_side", 16)),
         )
-        self.recognizer = FaceRecognizer(config["insightface_model"], self.device)
+        self.recognizer = FaceRecognizer(
+            config["insightface_model"],
+            self.device,
+            min_det_score=float(config.get("min_det_score", 0.55)),
+        )
+        self.same_face_threshold = float(config.get("same_face_threshold", 0.60))
         self.tracker = IoUTracker(
             max_age=int(config["tracker_max_age"]),
             min_hits=int(config["tracker_min_hits"]),
@@ -78,11 +84,33 @@ class FaceTrackerPipeline:
     def _identify(self, track: Track, crop: np.ndarray, timestamp: datetime) -> None:
         embedding = self.recognizer.embed(crop)
         if embedding is None:
-            self.logger.warning(f"Embedding skipped for track={track.track_id} (no usable face in crop)")
+            track.failed_embeds += 1
+            if track.failed_embeds >= 2:
+                track.rejected = True
+            self.logger.warning(
+                f"Embedding skipped for track={track.track_id} (no usable face in crop)"
+            )
             return
         track.embedding = embedding
-        matched_id, score = self.gallery.match(embedding)
-        if matched_id:
+        blocked = {
+            other.face_id
+            for other in self.tracker.tracks
+            if other is not track and other.face_id and not other.rejected
+        }
+        action, matched_id, score = choose_identity(
+            self.gallery.ranked(embedding),
+            blocked,
+            self.gallery.match_threshold,
+            self.same_face_threshold,
+        )
+        if action == "duplicate":
+            track.rejected = True
+            self.logger.info(
+                f"DUPLICATE | track={track.track_id} | face_id={matched_id} | cosine={score:.3f} "
+                "| extra box suppressed"
+            )
+            return
+        if action == "match" and matched_id:
             track.face_id = matched_id
             self.db.touch_face(matched_id, timestamp)
             self.logger.info(
@@ -193,7 +221,7 @@ class FaceTrackerPipeline:
             cv2.LINE_AA,
         )
         for track in tracks:
-            if not track.confirmed:
+            if not track.confirmed or not track.face_id or track.rejected:
                 continue
             x1, y1, x2, y2 = track.bbox.astype(int)
             color = (60, 200, 90) if track.face_id else (40, 180, 255)
@@ -261,11 +289,15 @@ class FaceTrackerPipeline:
                         if track.confirmed and track.face_id is None:
                             self._identify(track, track.last_crop, timestamp)
 
-                visible_ids = {t.face_id for t in active if t.confirmed and t.face_id}
+                visible_ids = {
+                    t.face_id
+                    for t in active
+                    if t.confirmed and t.face_id and not t.rejected
+                }
                 for track in exited:
                     self._mark_absent(track, timestamp, still_visible=track.face_id in visible_ids)
                 for track in active:
-                    if track.confirmed and track.face_id:
+                    if track.confirmed and track.face_id and not track.rejected:
                         self._mark_present(track, timestamp)
                 self._flush_pending_exits(timestamp)
 

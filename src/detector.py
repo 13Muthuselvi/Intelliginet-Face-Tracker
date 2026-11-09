@@ -8,10 +8,28 @@ import numpy as np
 from ultralytics import YOLO
 
 
+def keep_face_box(bbox: np.ndarray, min_side: float) -> bool:
+    """Drop tiny boxes and boxes that are far from a face shape."""
+    x1, y1, x2, y2 = [float(v) for v in bbox]
+    width = x2 - x1
+    height = y2 - y1
+    if width < min_side or height < min_side or height <= 0:
+        return False
+    aspect = width / height
+    return 0.45 <= aspect <= 2.2
+
+
 class FaceDetector:
     """Runs YOLOv8 face detection and returns xyxy boxes with scores."""
 
-    def __init__(self, model_path: str, confidence: float, imgsz: int, device: str) -> None:
+    def __init__(
+        self,
+        model_path: str,
+        confidence: float,
+        imgsz: int,
+        device: str,
+        min_box_side: float = 16.0,
+    ) -> None:
         path = Path(model_path)
         if not path.exists():
             raise FileNotFoundError(
@@ -21,6 +39,7 @@ class FaceDetector:
         self.confidence = confidence
         self.imgsz = imgsz
         self.device = device
+        self.min_box_side = min_box_side
 
     def detect(self, frame: np.ndarray) -> list[dict]:
         """Return a list of {bbox: [x1,y1,x2,y2], conf: float}."""
@@ -40,9 +59,12 @@ class FaceDetector:
         xyxy = boxes.xyxy.cpu().numpy()
         confs = boxes.conf.cpu().numpy()
         for box, conf in zip(xyxy, confs):
+            bbox = box.astype(float)
+            if not keep_face_box(bbox, self.min_box_side):
+                continue
             detections.append(
                 {
-                    "bbox": box.astype(float),
+                    "bbox": bbox,
                     "conf": float(conf),
                 }
             )
