@@ -119,6 +119,12 @@ class FaceDatabase:
             row = self._conn.execute("SELECT COUNT(*) AS n FROM faces").fetchone()
         return int(row["n"]) if row else 0
 
+    def clear_events(self) -> None:
+        """Remove ENTRY/EXIT rows but keep registered faces for re-identification."""
+        with self._lock:
+            self._conn.execute("DELETE FROM events")
+            self._conn.commit()
+
     def event_counts(self) -> dict[str, int]:
         with self._lock:
             rows = self._conn.execute(

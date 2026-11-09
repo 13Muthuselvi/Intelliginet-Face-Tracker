@@ -33,8 +33,8 @@ def association_score(box_a: np.ndarray, box_b: np.ndarray) -> float:
     if overlap > 0:
         return overlap
     dist = center_distance_ratio(box_a, box_b)
-    if dist < 1.15:
-        return 0.45 * (1.15 - dist)
+    if dist < 1.6:
+        return 0.45 * (1.6 - dist) / 1.6
     return 0.0
 
 

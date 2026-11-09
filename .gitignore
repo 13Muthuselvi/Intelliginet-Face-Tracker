@@ -15,6 +15,10 @@ data/*.avi
 data/*.mkv
 data/*.db
 data/*.db-journal
+data/*.db-wal
+data/*.db-shm
+Data/*.db-wal
+Data/*.db-shm
 data/drive_sample/
 
 # Runtime outputs (keep folder structure via .gitkeep)

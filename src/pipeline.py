@@ -59,11 +59,15 @@ class FaceTrackerPipeline:
         self.latest_frame: np.ndarray | None = None
         self.frame_index = 0
         self.running = False
-        self._present: dict[str, int] = {}
+        # Face IDs with an unmatched ENTRY this run (not track-refcount).
+        self._open: set[str] = set()
+        self._pending_exit: dict[str, tuple[Track, datetime, int]] = {}
+        self._session_events = {"entry": 0, "exit": 0}
+        self.exit_grace_frames = int(config.get("exit_grace_frames", 60))
 
         self.logger.info(
             f"Pipeline ready | device={self.device} | skip_frames={self.skip_frames} "
-            f"| gallery_size={len(self.gallery)}"
+            f"| gallery_size={len(self.gallery)} | exit_grace_frames={self.exit_grace_frames}"
         )
 
     def _crop(self, frame: np.ndarray, bbox: np.ndarray) -> np.ndarray:
@@ -95,29 +99,55 @@ class FaceTrackerPipeline:
         )
 
     def _mark_present(self, track: Track, timestamp: datetime) -> None:
-        """Log ENTRY once per Face ID while that person is still in the frame."""
+        """Log at most one ENTRY per Face ID until a flushed EXIT."""
         face_id = track.face_id
-        if not face_id or track.counted_in_scene:
+        if not face_id:
             return
-        if self._present.get(face_id, 0) == 0:
-            self._log_event("entry", track, timestamp)
-        self._present[face_id] = self._present.get(face_id, 0) + 1
         track.counted_in_scene = True
+
+        if face_id in self._pending_exit:
+            self._pending_exit.pop(face_id, None)
+            self._open.add(face_id)
+            self.logger.info(
+                f"TRACKING | face_id={face_id} | track={track.track_id} resumed (exit cancelled)"
+            )
+            return
+
+        if face_id in self._open:
+            return
+
+        self._open.add(face_id)
+        self._log_event("entry", track, timestamp)
         self.logger.info(f"TRACKING | face_id={face_id} | track={track.track_id} started")
 
-    def _mark_absent(self, track: Track, timestamp: datetime) -> None:
-        """Log EXIT only when the last track for that Face ID leaves."""
+    def _mark_absent(self, track: Track, timestamp: datetime, still_visible: bool) -> None:
+        """Hold EXIT until grace frames pass, so a flickering track does not double-count."""
         face_id = track.face_id
-        if not face_id or not track.counted_in_scene:
+        if not face_id or face_id not in self._open:
             return
-        remaining = self._present.get(face_id, 1) - 1
-        if remaining <= 0:
-            self._present.pop(face_id, None)
-            self._log_event("exit", track, timestamp)
-            self.logger.info(f"TRACKING | face_id={face_id} | track={track.track_id} ended")
-        else:
-            self._present[face_id] = remaining
         track.counted_in_scene = False
+        if still_visible:
+            return
+        if face_id in self._pending_exit:
+            return
+        self._pending_exit[face_id] = (track, timestamp, self.frame_index)
+        self.logger.info(
+            f"TRACKING | face_id={face_id} | track={track.track_id} "
+            f"pending-exit frame={self.frame_index}"
+        )
+
+    def _flush_pending_exits(self, timestamp: datetime, force: bool = False) -> None:
+        due: list[str] = []
+        for face_id, (_, _, start_frame) in self._pending_exit.items():
+            if force or (self.frame_index - start_frame) >= self.exit_grace_frames:
+                due.append(face_id)
+        for face_id in due:
+            track, event_ts, _ = self._pending_exit.pop(face_id)
+            if face_id not in self._open:
+                continue
+            self._open.discard(face_id)
+            self._log_event("exit", track, event_ts)
+            self.logger.info(f"TRACKING | face_id={face_id} | track={track.track_id} ended")
 
     def _log_event(self, event_type: str, track: Track, timestamp: datetime) -> None:
         crop = track.last_crop
@@ -132,6 +162,7 @@ class FaceTrackerPipeline:
             track_id=track.track_id,
             frame_index=self.frame_index,
         )
+        self._session_events[event_type] = self._session_events.get(event_type, 0) + 1
         self.logger.info(
             f"{event_type.upper()} | face_id={track.face_id} | track={track.track_id} "
             f"| frame={self.frame_index} | image={image_path}"
@@ -139,7 +170,7 @@ class FaceTrackerPipeline:
 
     def _annotate(self, frame: np.ndarray, tracks: list[Track]) -> np.ndarray:
         canvas = frame.copy()
-        unique = len(self.gallery)
+        unique = len(self._open) or len(self.gallery)
         cv2.rectangle(canvas, (8, 8), (420, 78), (16, 16, 16), -1)
         cv2.putText(
             canvas,
@@ -201,6 +232,12 @@ class FaceTrackerPipeline:
 
         self.logger.info(f"SOURCE | {source} | {width}x{height} @ {fps:.1f} FPS")
         self.running = True
+        self._open.clear()
+        self._pending_exit.clear()
+        self._session_events = {"entry": 0, "exit": 0}
+        if self.config.get("fresh_events"):
+            self.db.clear_events()
+            self.logger.info("Cleared previous ENTRY/EXIT rows (faces kept for re-id)")
         active: list[Track] = []
 
         try:
@@ -221,13 +258,16 @@ class FaceTrackerPipeline:
                 for track in active:
                     if detect_this_frame and track.time_since_update == 0:
                         track.last_crop = self._crop(frame, track.bbox)
-                    if track.confirmed and track.face_id is None and track.last_crop is not None:
-                        self._identify(track, track.last_crop, timestamp)
+                        if track.confirmed and track.face_id is None:
+                            self._identify(track, track.last_crop, timestamp)
+
+                visible_ids = {t.face_id for t in active if t.confirmed and t.face_id}
+                for track in exited:
+                    self._mark_absent(track, timestamp, still_visible=track.face_id in visible_ids)
+                for track in active:
                     if track.confirmed and track.face_id:
                         self._mark_present(track, timestamp)
-
-                for track in exited:
-                    self._mark_absent(track, timestamp)
+                self._flush_pending_exits(timestamp)
 
                 annotated = self._annotate(frame, active)
                 self.latest_frame = annotated
@@ -242,8 +282,10 @@ class FaceTrackerPipeline:
                 self.frame_index += 1
         finally:
             # Flush remaining occupants so ENTRY/EXIT stay paired on EOF or interrupt.
+            now = datetime.now()
             for track in list(self.tracker.tracks):
-                self._mark_absent(track, datetime.now())
+                self._mark_absent(track, now, still_visible=False)
+            self._flush_pending_exits(now, force=True)
             cap.release()
             if writer is not None:
                 writer.release()
@@ -253,8 +295,10 @@ class FaceTrackerPipeline:
 
         summary = {
             "frames": self.frame_index,
-            "unique_visitors": self.db.unique_visitor_count(),
-            "events": self.db.event_counts(),
+            "unique_visitors": self._session_events["entry"],
+            "gallery_size": self.db.unique_visitor_count(),
+            "events": dict(self._session_events),
+            "events_all_runs": self.db.event_counts(),
         }
         self.logger.info(
             f"COMPLETE | frames={summary['frames']} | unique={summary['unique_visitors']} "

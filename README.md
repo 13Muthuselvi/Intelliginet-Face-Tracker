@@ -36,7 +36,7 @@ Full planning, feature list, and CPU/GPU estimates: [docs/AI_PLANNING.md](docs/A
 
 ## Setup
 
-Python 3.10–3.12 recommended. A GPU is optional.
+Python 3.10–3.13 (this machine uses 3.13). A GPU is optional.
 
 ```bash
 python -m venv .venv
@@ -110,10 +110,14 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
   "skip_frames": 2,
   "yolo_model": "models/yolov8n-face.pt",
   "yolo_confidence": 0.50,
+  "yolo_imgsz": 640,
   "insightface_model": "buffalo_sc",
-  "embedding_threshold": 0.35,
-  "tracker_max_age": 15,
+  "embedding_threshold": 0.42,
+  "bbox_expand_ratio": 0.25,
+  "tracker_max_age": 40,
   "tracker_min_hits": 2,
+  "tracker_iou_threshold": 0.15,
+  "exit_grace_frames": 180,
   "device": "auto"
 }
 ```
@@ -124,7 +128,7 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
 
 - The Drive sample is a single-camera, mostly frontal or three-quarter view stream.
 - A “visitor” is a unique face embedding cluster, not a legal identity. Glasses, masks, or extreme pose can split or merge IDs.
-- ENTRY/EXIT are **per appearance** (one track life-cycle). If the same person walks out and later returns, that is a second entry/exit pair, but unique count stays the same.
+- ENTRY/EXIT are **per Face ID visit**, not per track ID. Track flicker does not add events. A second pair is logged only after a flushed EXIT (they were gone longer than `exit_grace_frames`). Unique count still does not increase on re-id.
 - Detection uses YOLO only; InsightFace is not the primary detector. It may run a light inner detector on the crop solely to align for ArcFace.
 - `embedding_threshold` 0.42 is a starting cosine cutoff for `buffalo_sc`. Tune on the sample video if you see splits (raise) or collisions (lower).
 - CPU-only laptops should keep `skip_frames >= 2` and `buffalo_sc` (not `buffalo_l`).
@@ -133,30 +137,34 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
 
 ## Sample output
 
-Checked-in snapshot from `data/sample.mp4` (`video_sample1.mp4`, 8s 4K crowd clip) is in `sample_output/`:
+Committed under [`sample_output/`](sample_output/) from `data/sample.mp4` (`video_sample1.mp4`, 8s 4K crowd clip). That folder is what reviewers should open on GitHub (logs, crops, SQLite). The 40 MB source video is gitignored; restore it with `python scripts/download_assets.py`.
 
 | Metric | Value |
 | --- | --- |
 | Frames processed | 240 |
-| Unique visitors | 30 |
-| ENTRY events | 32 |
-| EXIT events | 32 (paired with entries) |
+| Unique visitors | 37 |
+| ENTRY events | 37 |
+| EXIT events | 37 (one pair per unique visitor) |
 
-Re-identification does not add a new `faces` row; a second ENTRY for the same Face ID is a return into the frame. Inspect `sample_output/events.log`, `sample_output/tracker.db`, and the crop folders. A full local run also writes `logs/annotated_output.mp4`.
+| Path | Contents |
+| --- | --- |
+| `sample_output/events.log` | Detection, recognition, tracking, ENTRY, EXIT |
+| `sample_output/tracker.db` | `faces` (37) + `events` (37+37) |
+| `sample_output/entries/2026-11-07/` | Cropped ENTRY images |
+| `sample_output/exits/2026-11-07/` | Cropped EXIT images |
+| `sample_output/faces/` | Thumbnail per Face ID |
+
+Re-identification does not add a new `faces` row. If the same Face ID is seen again after a short drop, the pending EXIT is cancelled so the count stays one entry / one exit. A local run also writes `logs/annotated_output.mp4`.
+
+```bash
+python app.py --source data/sample.mp4 --fresh-events
+```
 
 ## Demo video
 
-Add your Loom / YouTube walkthrough URL here before submitting the Google Form:
+**Demo:** https://www.loom.com/share/cedab9a5201e44d4afd19d9a7b9115e5
 
-**Demo:** _TODO — record a 3–5 minute walkthrough (setup, `config.json`, live run, logs, DB, unique count). Submissions without this video are not reviewed._
-
-Suggested outline:
-
-1. Show `config.json` and `skip_frames`.
-2. Run `python app.py --source data/sample.mp4`.
-3. Open `logs/events.log`, an entry crop, and SQLite (`faces` / `events`).
-4. Show unique count not increasing on re-identification.
-5. Mention RTSP: `python app.py --source rtsp://...`.
+Walkthrough (~3.5 min): `config.json` / `skip_frames`, run `python app.py --source data/sample.mp4 --fresh-events`, unique count 37 with matching ENTRY/EXIT, `events.log`, and cropped face images. Interview camera: `python app.py --source rtsp://...`.
 
 ## Project layout
 
@@ -168,7 +176,8 @@ web/           optional dashboard
 scripts/       model + Drive downloader
 docs/          AI planning and prompt log
 logs/          runtime logs and crops
-data/          SQLite + sample video
+data/          SQLite + sample video (local)
+sample_output/ committed logs, crops, and tracker.db
 models/        yolov8n-face.pt
 ```
 

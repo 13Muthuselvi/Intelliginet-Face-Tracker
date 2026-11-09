@@ -26,6 +26,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--dashboard", action="store_true", help="Launch the review dashboard")
     parser.add_argument("--display", action="store_true", help="Show an OpenCV preview window")
     parser.add_argument("--no-output", action="store_true", help="Do not write annotated video")
+    parser.add_argument(
+        "--fresh-events",
+        action="store_true",
+        help="Clear previous ENTRY/EXIT rows but keep registered faces",
+    )
     return parser.parse_args()
 
 
@@ -42,6 +47,8 @@ def main() -> None:
     cfg = load_config(args.config)
     if args.display:
         cfg["display"] = True
+    if args.fresh_events:
+        cfg["fresh_events"] = True
 
     if args.dashboard:
         from web.server import run_dashboard
