@@ -85,11 +85,10 @@ class FaceTrackerPipeline:
         embedding = self.recognizer.embed(crop)
         if embedding is None:
             track.failed_embeds += 1
-            if track.failed_embeds >= 2:
-                track.rejected = True
-            self.logger.warning(
-                f"Embedding skipped for track={track.track_id} (no usable face in crop)"
-            )
+            if track.failed_embeds == 1:
+                self.logger.warning(
+                    f"Embedding skipped for track={track.track_id} (no usable face in crop)"
+                )
             return
         track.embedding = embedding
         blocked = {

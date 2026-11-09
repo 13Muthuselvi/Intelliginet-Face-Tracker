@@ -145,16 +145,16 @@ Committed under [`sample_output/`](sample_output/) from `data/sample.mp4` (`vide
 | Metric | Value |
 | --- | --- |
 | Frames processed | 240 |
-| Unique visitors | 37 |
-| ENTRY events | 37 |
-| EXIT events | 37 (one pair per unique visitor) |
+| Unique visitors | 20 |
+| ENTRY events | 20 |
+| EXIT events | 20 (one pair per unique visitor) |
 
 | Path | Contents |
 | --- | --- |
 | `sample_output/events.log` | Detection, recognition, tracking, ENTRY, EXIT |
-| `sample_output/tracker.db` | `faces` (37) + `events` (37+37) |
-| `sample_output/entries/2026-11-07/` | Cropped ENTRY images |
-| `sample_output/exits/2026-11-07/` | Cropped EXIT images |
+| `sample_output/tracker.db` | `faces` (20) + `events` (20+20) |
+| `sample_output/entries/2026-11-09/` | Cropped ENTRY images |
+| `sample_output/exits/2026-11-09/` | Cropped EXIT images |
 | `sample_output/faces/` | Thumbnail per Face ID |
 
 Re-identification does not add a new `faces` row. If the same Face ID is seen again after a short drop, the pending EXIT is cancelled so the count stays one entry / one exit. A local run also writes `logs/annotated_output.mp4`.
@@ -167,7 +167,7 @@ python app.py --source data/sample.mp4 --fresh-events
 
 **Demo:** https://www.loom.com/share/cedab9a5201e44d4afd19d9a7b9115e5
 
-Walkthrough (~3.5 min): `config.json` / `skip_frames`, run `python app.py --source data/sample.mp4 --fresh-events`, unique count 37 with matching ENTRY/EXIT, `events.log`, and cropped face images. Interview camera: `python app.py --source rtsp://...`.
+Walkthrough (~3.5 min): `config.json` / `skip_frames`, the sample video, matching ENTRY/EXIT logs, and cropped face images. The committed sample counts 20 unique visitors after non-face boxes are rejected. Interview camera: `python app.py --source rtsp://...`.
 
 ## Project layout
 
