@@ -165,9 +165,9 @@ python app.py --source data/sample.mp4 --fresh-events
 
 ## Demo video
 
-**Demo:** https://www.loom.com/share/cedab9a5201e44d4afd19d9a7b9115e5
+**Demo:** https://www.loom.com/share/b2d74f2840144398b258064217f1d01a
 
-Walkthrough (~3.5 min): `config.json` / `skip_frames`, the sample video, matching ENTRY/EXIT logs, and cropped face images. The committed sample counts 20 unique visitors after non-face boxes are rejected. Interview camera: `python app.py --source rtsp://...`.
+Walkthrough (~5 min): `config.json` / `skip_frames`, the sample video, matching ENTRY/EXIT logs, and cropped face images. The committed sample counts 20 unique visitors after non-face boxes are rejected. Interview camera: `python app.py --source rtsp://...`.
 
 ## Project layout
 
