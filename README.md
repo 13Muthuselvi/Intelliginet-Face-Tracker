@@ -6,7 +6,7 @@ AI-driven unique visitor counter: detect faces with YOLO, recognize them with In
 
 - **Detection** — YOLOv8-face (`yolov8n-face.pt`)
 - **Recognition** — InsightFace ArcFace embeddings (`buffalo_sc`)
-- **Tracking** — IoU + Hungarian assignment (SORT-style)
+- **Tracking** — ByteTrack (high-score match, then low-score recovery + Kalman)
 - **Auto-registration** — unknown faces get a stable `Face ID`
 - **Unique count** — re-identification does not increment the visitor total
 - **Logging** — `logs/events.log`, cropped images, SQLite (`data/tracker.db`)
@@ -21,7 +21,7 @@ flowchart LR
     SRC[Video / RTSP] --> CAP[OpenCV capture]
     CAP --> SKIP{skip_frames gate}
     SKIP --> YOLO[YOLOv8-face]
-    YOLO --> TRK[IoU tracker]
+    YOLO --> TRK[ByteTrack]
     TRK --> REC[InsightFace embed]
     REC --> GAL{Gallery match}
     GAL -->|new| REG[Register Face ID]
@@ -112,7 +112,8 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
   "yolo_confidence": 0.50,
   "yolo_imgsz": 640,
   "insightface_model": "buffalo_sc",
-  "embedding_threshold": 0.42,
+  "embedding_threshold": 0.30,
+  "match_margin": 0.05,
   "min_det_score": 0.55,
   "min_box_side": 16,
   "same_face_threshold": 0.60,
@@ -120,6 +121,9 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
   "tracker_max_age": 40,
   "tracker_min_hits": 2,
   "tracker_iou_threshold": 0.15,
+  "track_high_thresh": 0.50,
+  "track_low_thresh": 0.10,
+  "track_new_thresh": 0.50,
   "exit_grace_frames": 180,
   "device": "auto"
 }
@@ -133,7 +137,7 @@ python -c "from src.database import FaceDatabase; print(FaceDatabase('data/track
 - A “visitor” is a unique face embedding cluster, not a legal identity. Glasses, masks, or extreme pose can split or merge IDs.
 - ENTRY/EXIT are **per Face ID visit**, not per track ID. Track flicker does not add events. A second pair is logged only after a flushed EXIT (they were gone longer than `exit_grace_frames`). Unique count still does not increase on re-id.
 - Detection uses YOLO only; InsightFace is not the primary detector. It may run a light inner detector on the crop solely to align for ArcFace.
-- `embedding_threshold` 0.42 is the cosine cutoff for `buffalo_sc`. A higher cutoff avoids merging two people. `same_face_threshold` 0.60 stops a second box from copying an ID already visible. `min_det_score` drops shoulder and floor detections.
+- `embedding_threshold` 0.30 is the cosine cutoff for `buffalo_sc` (vectors are L2-normalized first). A match also needs a 0.05 gap over the next-best face (`match_margin`) so two similar people are not merged. `same_face_threshold` 0.60 stops a second box from copying an ID already visible. `min_det_score` drops shoulder and floor detections.
 - CPU-only laptops should keep `skip_frames >= 2` and `buffalo_sc` (not `buffalo_l`).
 - Annotated video uses the `mp4v` codec for portability; install extra codecs only if your player needs them.
 - No cloud APIs; everything runs locally so an offline interview machine still works after the first model download.

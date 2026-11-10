@@ -29,6 +29,7 @@ class FaceDetector:
         imgsz: int,
         device: str,
         min_box_side: float = 16.0,
+        track_low_thresh: float = 0.1,
     ) -> None:
         path = Path(model_path)
         if not path.exists():
@@ -37,6 +38,8 @@ class FaceDetector:
             )
         self.model = YOLO(str(path))
         self.confidence = confidence
+        # ByteTrack second-stage association needs boxes below the high threshold.
+        self.track_low_thresh = float(track_low_thresh)
         self.imgsz = imgsz
         self.device = device
         self.min_box_side = min_box_side
@@ -45,7 +48,7 @@ class FaceDetector:
         """Return a list of {bbox: [x1,y1,x2,y2], conf: float}."""
         results = self.model.predict(
             source=frame,
-            conf=self.confidence,
+            conf=min(self.confidence, self.track_low_thresh),
             imgsz=self.imgsz,
             device=self.device,
             verbose=False,

@@ -12,9 +12,9 @@ from src.database import FaceDatabase
 from src.detector import FaceDetector
 from src.device import resolve_device
 from src.event_logger import EventLogger
-from src.gallery import FaceGallery, choose_identity
+from src.gallery import FaceGallery, choose_identity, l2_normalize
 from src.recognizer import FaceRecognizer
-from src.tracker import IoUTracker, Track
+from src.tracker import ByteTracker, Track
 from src.video_source import open_capture
 
 
@@ -47,6 +47,7 @@ class FaceTrackerPipeline:
             int(config["yolo_imgsz"]),
             self.device,
             min_box_side=float(config.get("min_box_side", 16)),
+            track_low_thresh=float(config.get("track_low_thresh", 0.1)),
         )
         self.recognizer = FaceRecognizer(
             config["insightface_model"],
@@ -54,12 +55,19 @@ class FaceTrackerPipeline:
             min_det_score=float(config.get("min_det_score", 0.55)),
         )
         self.same_face_threshold = float(config.get("same_face_threshold", 0.60))
-        self.tracker = IoUTracker(
+        self.match_margin = float(config.get("match_margin", 0.05))
+        self.tracker = ByteTracker(
             max_age=int(config["tracker_max_age"]),
             min_hits=int(config["tracker_min_hits"]),
             iou_threshold=float(config["tracker_iou_threshold"]),
+            track_high_thresh=float(config.get("track_high_thresh", config["yolo_confidence"])),
+            track_low_thresh=float(config.get("track_low_thresh", 0.1)),
+            track_new_thresh=float(config.get("track_new_thresh", config["yolo_confidence"])),
         )
-        self.gallery = FaceGallery(float(config["embedding_threshold"]))
+        self.gallery = FaceGallery(
+            float(config["embedding_threshold"]),
+            match_margin=float(config.get("match_margin", 0.05)),
+        )
         self.gallery.load(self.db.load_gallery())
 
         self.latest_frame: np.ndarray | None = None
@@ -73,7 +81,8 @@ class FaceTrackerPipeline:
 
         self.logger.info(
             f"Pipeline ready | device={self.device} | skip_frames={self.skip_frames} "
-            f"| gallery_size={len(self.gallery)} | exit_grace_frames={self.exit_grace_frames}"
+            f"| tracker=bytetrack | gallery_size={len(self.gallery)} "
+            f"| exit_grace_frames={self.exit_grace_frames}"
         )
 
     def _crop(self, frame: np.ndarray, bbox: np.ndarray) -> np.ndarray:
@@ -101,6 +110,7 @@ class FaceTrackerPipeline:
             blocked,
             self.gallery.match_threshold,
             self.same_face_threshold,
+            self.match_margin,
         )
         if action == "duplicate":
             track.rejected = True
@@ -120,7 +130,12 @@ class FaceTrackerPipeline:
         face_id = self.gallery.register(embedding)
         track.face_id = face_id
         thumb_path = self.logger.save_face_thumbnail(face_id, crop)
-        self.db.register_face(face_id, embedding.astype(np.float32).tobytes(), timestamp, thumb_path)
+        self.db.register_face(
+            face_id,
+            l2_normalize(embedding).astype(np.float32).tobytes(),
+            timestamp,
+            thumb_path,
+        )
         self.logger.info(
             f"REGISTRATION | track={track.track_id} | face_id={face_id} | unique_visitors={len(self.gallery)}"
         )

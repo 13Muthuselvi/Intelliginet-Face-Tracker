@@ -12,11 +12,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.detector import keep_face_box
 from src.gallery import FaceGallery, choose_identity
 from src.recognizer import face_crop_is_usable
-from src.tracker import IoUTracker
+from src.tracker import ByteTracker
 
 
 def test_gallery_registers_then_matches() -> None:
-    gallery = FaceGallery(match_threshold=0.4)
+    gallery = FaceGallery(match_threshold=0.30)
     vec = np.zeros(16, dtype=np.float32)
     vec[0] = 1.0
     face_id = gallery.register(vec)
@@ -29,9 +29,27 @@ def test_gallery_registers_then_matches() -> None:
     assert matched_other is None
 
 
+def test_unnormalized_vector_still_uses_cosine() -> None:
+    gallery = FaceGallery(match_threshold=0.30)
+    raw = np.zeros(16, dtype=np.float32)
+    raw[0] = 4.0
+    face_id = gallery.register(raw)
+    query = np.zeros(16, dtype=np.float32)
+    query[0] = 2.0
+    matched, score = gallery.match(query)
+    assert matched == face_id
+    assert score > 0.99
+
+
+def test_ambiguous_pair_is_not_forced_match() -> None:
+    ranked = [("FA", 0.45), ("FB", 0.44)]
+    action, face_id, _ = choose_identity(ranked, set(), 0.30, 0.60, 0.05)
+    assert action == "new" and face_id is None
+
+
 def test_tracker_entry_and_exit() -> None:
-    tracker = IoUTracker(max_age=2, min_hits=1, iou_threshold=0.3)
-    box = {"bbox": np.array([10.0, 10.0, 50.0, 50.0])}
+    tracker = ByteTracker(max_age=2, min_hits=1, iou_threshold=0.3, track_high_thresh=0.3)
+    box = {"bbox": np.array([10.0, 10.0, 50.0, 50.0]), "conf": 0.9}
     active, exited = tracker.update([box])
     assert len(active) == 1 and not exited
     active[0].confirmed = True
@@ -44,6 +62,24 @@ def test_tracker_entry_and_exit() -> None:
     _, exited = tracker.update([])
     assert len(exited) == 1
     assert exited[0].face_id == "FTEST"
+
+
+def test_bytetrack_recovers_with_low_score_box() -> None:
+    tracker = ByteTracker(
+        max_age=3,
+        min_hits=1,
+        iou_threshold=0.3,
+        track_high_thresh=0.5,
+        track_low_thresh=0.1,
+    )
+    high = {"bbox": np.array([10.0, 10.0, 50.0, 50.0]), "conf": 0.9}
+    active, _ = tracker.update([high])
+    track_id = active[0].track_id
+    low = {"bbox": np.array([12.0, 12.0, 52.0, 52.0]), "conf": 0.2}
+    active, exited = tracker.update([low])
+    assert not exited
+    assert len(active) == 1
+    assert active[0].track_id == track_id
 
 
 def test_one_id_cannot_cover_two_people() -> None:
@@ -71,7 +107,10 @@ def test_box_shape_and_landmarks_reject_non_faces() -> None:
 
 if __name__ == "__main__":
     test_gallery_registers_then_matches()
+    test_unnormalized_vector_still_uses_cosine()
+    test_ambiguous_pair_is_not_forced_match()
     test_tracker_entry_and_exit()
+    test_bytetrack_recovers_with_low_score_box()
     test_one_id_cannot_cover_two_people()
     test_second_box_on_same_person_is_suppressed()
     test_box_shape_and_landmarks_reject_non_faces()
