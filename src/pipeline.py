@@ -34,6 +34,9 @@ def clip_bbox(bbox: np.ndarray, width: int, height: int, expand: float) -> tuple
 
 class FaceTrackerPipeline:
     def __init__(self, config: dict) -> None:
+        if config is None:
+            config = {}
+
         self.config = config
         self.device = resolve_device(config.get("device", "auto"))
         self.skip_frames = int(config.get("skip_frames", 0))

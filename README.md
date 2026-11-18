@@ -58,7 +58,7 @@ python scripts/download_assets.py
 
 If Drive download is blocked, copy the provided video to `data/sample.mp4` yourself.
 
-First InsightFace run downloads `buffalo_sc` into `~/.insightface/` (needs network once).
+`buffalo_sc` is located directly in `models/buffalo_sc/` (or can be downloaded along with YOLO weights via `python scripts/download_assets.py --skip-video`).
 
 ### Run on the sample video
 
@@ -185,7 +185,7 @@ docs/          AI planning and prompt log
 logs/          runtime logs and crops
 data/          SQLite + sample video (local)
 sample_output/ committed logs, crops, and tracker.db
-models/        yolov8n-face.pt
+models/        yolov8n-face.pt, buffalo_sc/
 ```
 
 ---

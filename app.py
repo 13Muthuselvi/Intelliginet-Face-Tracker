@@ -2,8 +2,9 @@
 
 Examples:
     python app.py --source data/sample.mp4
+    python app.py --source data/sample.mp4 --fresh-events
     python app.py --source rtsp://user:pass@ip:554/stream
-    python app.py --dashboard
+    python run_dashboard.py  # Launch the dashboard
 """
 
 from __future__ import annotations
@@ -45,6 +46,8 @@ def resolve_source(cfg: dict, cli_source: str | None) -> str:
 def main() -> None:
     args = parse_args()
     cfg = load_config(args.config)
+    if cfg is None:
+        cfg = {}
     if args.display:
         cfg["display"] = True
     if args.fresh_events:

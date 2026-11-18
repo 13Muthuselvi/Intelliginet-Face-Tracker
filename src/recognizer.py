@@ -6,6 +6,7 @@ from a padded face crop so the two modules stay independent, as required.
 
 from __future__ import annotations
 
+from pathlib import Path
 import numpy as np
 from insightface.app import FaceAnalysis
 
@@ -55,7 +56,16 @@ class FaceRecognizer:
         providers = resolve_onnx_providers(device)
         # ctx_id >= 0 selects GPU in InsightFace; -1 forces CPU.
         ctx_id = 0 if device.startswith("cuda") else -1
-        self.app = FaceAnalysis(name=model_name, providers=providers)
+
+        project_root = Path(__file__).resolve().parents[1]
+        local_dir = project_root / "models" / model_name
+        if local_dir.is_dir():
+            self.app = FaceAnalysis(name=str(local_dir), providers=providers)
+        elif Path(model_name).is_dir():
+            self.app = FaceAnalysis(name=str(Path(model_name).resolve()), providers=providers)
+        else:
+            self.app = FaceAnalysis(name=model_name, providers=providers)
+
         # Crops are already face-centric from YOLO, so allow a lower det thresh.
         self.app.prepare(ctx_id=ctx_id, det_size=(640, 640), det_thresh=0.2)
 
